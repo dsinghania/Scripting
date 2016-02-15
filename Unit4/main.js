@@ -89,3 +89,15 @@ var input = {
         console.log(calcArgs.arg1 / calcArgs.arg2);   
 }
 objectCalculator(input);
+function calcTest2() {
+    var testData = [
+        { arg1: 2, action: "add", arg2: 2 },
+        { arg1: 2, action: "subtract", arg2: 2 },
+        { arg1: 2, action: "multiply", arg2: 2 },
+        { arg1: 2, action: "divide", arg2: 2 }
+    ];
+    for (var i=0; i < testData.length; i++) {
+        objectCalculator(testData[i]);
+    }
+}
+calcTest2();
