@@ -97,7 +97,7 @@ function calcTest2() {
         { arg1: 2, action: "divide", arg2: 2 }
     ];
     for (var i=0; i < testData.length; i++) {
-        objectCalculator(testData[i]);
+        console.log("The result is" + objectCalculator(testData[i]));
     }
 }
 calcTest2();
