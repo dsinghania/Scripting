@@ -1,4 +1,4 @@
-console.log("Hello World!");
+//console.log("Hello World!");
 var blogArticles = [{
 		title: "Advanced Performance Audits With DevTools",
 		author: "Paul Irish",
@@ -76,6 +76,6 @@ function createBlogArticle(blogArticles) {
           
           var pContent = document.createElement("p");
           divContent.appendChild(pContent);
-          pContent.innerHTML = blogArticles.content[j].paragraph;
+          pContent.innerText = blogArticles.content[j].paragraph;
     }  
 }
