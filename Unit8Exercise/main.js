@@ -44,7 +44,7 @@ function createBlogArticle(blogArticles) {
     
     var $blogContainer = $("#blog-container");    
     
-    var $divArticle = $("<div><div>");
+    var $divArticle = $("<div></div>");
     $divArticle.addClass("article-wrapper");
     
     $blogContainer.append($divArticle);
@@ -64,12 +64,13 @@ function createBlogArticle(blogArticles) {
     $divArticle.append($h3Article);
     $h3Article.html(blogArticles.publishedOn);
     
-    var $divContent = $("<div><div>");
+    var $divContent = $("<div></div>");
     $divContent.addClass("content-wrapper");
      
     $divArticle.append($divContent);
     
-    for(var j = 0; j < blogArticles.content.length; j++) {
+    var contentLen = blogArticles.content.length;
+    for(var j = 0; j < contentLen; j++) {
      
          if(blogArticles.content[j].heading.length > 0) {
              var $h2Content = $("<h2></h2>");
@@ -79,6 +80,6 @@ function createBlogArticle(blogArticles) {
           
           var $pContent = $("<p></p>");
           $divContent.append($pContent);
-          $pContent.html(blogArticles.content[j].paragraph);
+          $pContent.text(blogArticles.content[j].paragraph);
     }  
 }
