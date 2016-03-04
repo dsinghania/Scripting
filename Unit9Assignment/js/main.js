@@ -3,10 +3,10 @@
 $(document).ready(function(){
     console.log("JQuery");
     
-    var $allLinks = $("a");
+    var $allLinks = $("#movie-menu a");
     var $allDesc = $(".movies");
     
-    $('a').click(function(event){
+    $allLinks.click(function(event){
         
         var $linkClicked = $(event.target);
         //console.log($linkClicked);
@@ -17,21 +17,17 @@ $(document).ready(function(){
         var $divClicked = $("#"+ $dataTarget);
         //console.log($divClicked);
         
-        createClickHandler($linkClicked, $divClicked);        
-    });
-    
-    function createClickHandler($link, $divToShow) {
-
-      $divToShow.css('background-color', 'black')
+      $divClicked.css('background-color', 'black')
                 .css('color', 'yellow');
 
-      $link.css('background-color', 'black')
+      $linkClicked.css('background-color', 'black')
            .css('color', 'yellow');
   
       $allDesc.not(this).fadeOut();
-      $divToShow.fadeIn();
+      $divClicked.fadeIn();
+      
       $allLinks.not(this).css("background-color", "").css("color", "");
-  }
+   });
 });
 
 /*
