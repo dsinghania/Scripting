@@ -15,7 +15,7 @@ $(document).ready(function(){
         //console.log($dataTarget);
         
         var $divClicked = $("#"+ $dataTarget);
-        //console.log($newEpisode);
+        //console.log($divClicked);
         
         createClickHandler($linkClicked, $divClicked);        
     });
