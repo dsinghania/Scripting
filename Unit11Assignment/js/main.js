@@ -1,6 +1,6 @@
 // https://learn.jquery.com/using-jquery-core/document-ready/
 $(document).ready(function(){
-    
+        
     console.log("Jquery events!");
     
     var $myTable =  $("#my-table tr");
@@ -11,7 +11,8 @@ $(document).ready(function(){
         $( this ).css("background-color", "");
     });
     
-    $("#my-table button").click(function(e){
+    //$("#my-table button").click(function(e){
+    $("#my-table").on("click", "button", function(e){
               
         //var $buttonClicked = $(this)[0].getAttribute("title");
         var $buttonClicked = $(this)[0].getAttribute("data-action");
