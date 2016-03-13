@@ -15,7 +15,7 @@ $(document).ready(function(){
     $("#my-table").on("click", "button", function(e){
               
         //var $buttonClicked = $(this)[0].getAttribute("title");
-        var $buttonClicked = $(this)[0].getAttribute("data-action");
+        var $buttonClicked = $(this).data("action");
         
         //var $buttonClicked = $(e.target)[0].className;              //data("action");
         //console.log($buttonClicked);
