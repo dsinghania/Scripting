@@ -1,3 +1,4 @@
+//AJAX-  Asynchronous JavaScript and XML 
 // https://learn.jquery.com/using-jquery-core/document-ready/
 $(document).ready(function(){
     
@@ -10,7 +11,7 @@ $(document).ready(function(){
         var $href, $dataTitle, $dataDesc; 
                
         result1.forEach(function(post){
-            console.log(post);
+            //console.log(post);
             
             var $li = $("<li></li>");
             var $a = $("<a />").attr('href', "#").attr("data-id", post.id).attr("data-url", post.url).text(post.name);
@@ -20,14 +21,16 @@ $(document).ready(function(){
        
         var $allLinks = $("#movie-menu a");
 
-        $allLinks.click(function(event){
-            
+        // $allLinks.click(function(event){
+        $("#movie-menu").on("click", "a", function(event){    
             var $linkClicked = $(event.target);        
             var $dataId = $linkClicked.data("id");
+            //console.log($dataId);
             $linkClicked.css('background-color', 'black').css('color', 'yellow');            
                 
             $(".movies").fadeOut();        
-            
+           
+            $(".movies").remove();  //remove previous divs    
             var $div = $("<div></div>").addClass("movies").addClass("row").attr("id", $dataId);
             var $innerDiv = $("<div></div>").addClass("col-md-12");
             $div.append($innerDiv);
