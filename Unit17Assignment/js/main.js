@@ -1,10 +1,11 @@
 // https://learn.jquery.com/using-jquery-core/document-ready/
-// Crud Interfaces  Create Retrieve Update & Delete
+// CRUD Interfaces  Create Retrieve Update & Delete
 
 $(document).ready(function(){    
     var todos = [];     //an array to hold all the input values
     var inputValue;
     var rowId;
+    var diff = 0;
         
     getToDos();
     listTodos();
@@ -22,31 +23,28 @@ $(document).ready(function(){
         var todo = addNewTodo(inputValue);
         createRow(todo);
         saveTodos();
-        //location.reload();      //reloads the resource from the current URL.
+        location.reload();          //reload the current document
+        listTodos();
     });
         
-    $("button[data-action='complete']").click(function(){        
-           
-        var $row = $(this).closest('tr');        
-        showCompleted($row);
-        
-        rowId = $row.attr("id");        
-        var updateIndex = findIndex(rowId);        
-        todos[updateIndex].completed = true;        
-        saveTodos();       
-        //location.reload();    //removes away the strike through from the input and also the time display  
-    });
-    
-    $("button[data-action='remove']").click(function(){
-            
+   // $("button[data-action='complete']").click(function(){        
+    $(".table").on("click", "button", (function(e){        
+                
+        var $buttonClicked = $(this).data("action");
         var $row = $(this).closest('tr'); 
-        rowId = $row.attr("id"); 
-        var removeIndex = findIndex(rowId);
-        todos.splice(removeIndex, 1);
-        saveTodos();
-        //location.reload();          //reload the current document
-        $row.remove(); 
-    }); 
+        rowId = $row.attr("id");               
+        var index = findIndex(rowId); 
+        
+        if($buttonClicked === "complete"){
+            showCompleted($row);        
+            todos[index].completed = true; 
+        }       
+        if($buttonClicked === "remove"){
+            todos.splice(index, 1);
+            $row.remove(); 
+        }                 
+        saveTodos(); 
+    }));
     
     function createRow(todo){
         var inputValue = todo.name;
@@ -132,8 +130,6 @@ $(document).ready(function(){
             $(".alert-success").hide();                
         }
         setTimeout(hideMessage, 3 * 1000);
-                    
-        var diff = 0;
         function timeDisplay(){
             var output = "Completed " ;
             output += diff;
