@@ -5,7 +5,7 @@ $(document).ready(function(){
     var todos = [];     //an array to hold all the input values
     var inputValue;
     var rowId;
-    var diff = 0;
+    var addTime, newTime;
         
     getToDos();
     listTodos();
@@ -20,7 +20,9 @@ $(document).ready(function(){
             alert("To-do List is empty");
             return false;
         }
-        var todo = addNewTodo(inputValue);
+        addTime = new Date().getTime();
+        //console.log(addTime);
+        var todo = addNewTodo(inputValue, addTime);
         createRow(todo);
         saveTodos();
         location.reload();          //reload the current document
@@ -36,6 +38,8 @@ $(document).ready(function(){
         var index = findIndex(rowId); 
         
         if($buttonClicked === "complete"){
+            
+            todos[index].time = new Date().getTime();            
             showCompleted($row);        
             todos[index].completed = true; 
         }       
@@ -81,10 +85,11 @@ $(document).ready(function(){
     
     //https://www.youtube.com/watch?v=e3XtHxV_fck
     
-    function addNewTodo(input){        
+    function addNewTodo(input, newTime){        
         var todo = {
             name:      input,
-            completed: false
+            completed: false,
+            time:      newTime
         };
         todos.push(todo);  
         return todo;      
@@ -130,13 +135,21 @@ $(document).ready(function(){
             $(".alert-success").hide();                
         }
         setTimeout(hideMessage, 3 * 1000);
+        
+        rowId = $row.attr("id"); 
+        var index = findIndex(rowId);
+        var rowTime = todos[index].time;
+        //console.log(rowTime);
+        
         function timeDisplay(){
+        
+            var dt = new Date();
+            newTime = Math.round( (dt.getTime() - rowTime) / 60000);
             var output = "Completed " ;
-            output += diff;
-            output += diff < 2 ? " minute" : " minutes";
+            output += newTime;
+            output += newTime < 2 ? " minute" : " minutes";
             output += " ago.";
             $row.find("td:last-child").html(output);
-            diff++;
         }
         setTimeout(timeDisplay, 0);
         setInterval(timeDisplay, 60 * 1000);
