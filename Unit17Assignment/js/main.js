@@ -25,8 +25,8 @@ $(document).ready(function(){
         var todo = addNewTodo(inputValue, addTime);
         createRow(todo);
         saveTodos();
-        location.reload();          //reload the current document
-        listTodos();
+        //location.reload();          //reload the current document
+        //listTodos();
     });
         
    // $("button[data-action='complete']").click(function(){        
@@ -42,7 +42,8 @@ $(document).ready(function(){
             todos[index].time = new Date().getTime();            
             showCompleted($row);        
             todos[index].completed = true; 
-        }       
+        }  
+             
         if($buttonClicked === "remove"){
             todos.splice(index, 1);
             $row.remove(); 
