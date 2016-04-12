@@ -20,9 +20,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <form class="form-inline" role="form">
-                    <input id="brand-text" type="text" class="form-control" placeholder="New Brand" name="brand" />
-                    <input id="country-text" type="text" class="form-control" placeholder="USA" name="country" />
-                    <button id="btn-brand-add" type="button" class="btn btn-primary" data-bind="click: addCarBrands">Add</button>
+                    <input id="brand-text" type="text" class="form-control" placeholder="New Brand" name="brand" data-bind='value: brandToAdd'/>
+                    <input id="country-text" type="text" class="form-control" placeholder="USA" name="country" data-bind='value: countryToAdd'/>
+                    <button id="btn-brand-add" type="button" class="btn btn-primary" data-bind="submit: addCarBrands">Add</button>
                 </form>
             </div>
         </div>
@@ -38,12 +38,12 @@
                         </tr>
                     </thead>
                     
-                    <tbody data-bind="foreach: carBrands">
+                    <tbody data-bind="foreach: carBrands.sort()">
                         <tr>
                             <td data-bind="text: brand">Chevrolet</td>
                             <td data-bind="text: country">USA</td>
                             <td>
-                                <button title="remove" type="button" class="btn btn-icon" data-action="remove">
+                                <button title="remove" type="button" class="btn btn-icon" data-action="remove" data-bind="click: $parent.removeRow" >
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </td>
