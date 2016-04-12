@@ -6,8 +6,8 @@ $(document).ready(function(){
     $.get(url, function(result){
          //console.log(result);
          var viewModel = {
-             carBrands: ko.observableArray(),
-             brandToAdd: ko.observable(""),
+             carBrands:    ko.observableArray(),
+             brandToAdd:   ko.observable(""),
              countryToAdd: ko.observable(""),
              addCarBrands: function(){
                 // brandInputValue = $("#brand-text").val();
@@ -15,16 +15,16 @@ $(document).ready(function(){
                  if(brandToAdd() != "" && countryToAdd != ""){
                      console.log(brand + " " + countryToAdd);
                      carBrands.push({
-                         brand: brandToAdd,
+                         brand:   brandToAdd,
                          country: countryToAdd
                      })
-                 }                
-                else {
-                // if(brandInputValue == "" || countryInputValue == ""){
+                 }
+                  /*
+                if(brandInputValue == "" || countryInputValue == ""){
                      alert("Brand or Country input field is empty");
                      return false;
                  }                     
-                /* viewModel.carBrands.push({
+                viewModel.carBrands.push({
                      brand: brandInputValue,
                      country: countryInputValue                        
                  })*/
@@ -37,7 +37,7 @@ $(document).ready(function(){
                      
          result.forEach(function(post){
             viewModel.carBrands.push({
-                brand: post.make_display,
+                brand:   post.make_display,
                 country: post.make_country                        
             });
         }); 
