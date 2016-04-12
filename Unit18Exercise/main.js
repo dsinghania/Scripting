@@ -6,22 +6,32 @@ $(document).ready(function(){
     
     $.get(url, function(result){
          var viewModel = {
-             carBrands:    ko.observableArray(),
+             carBrands:    ko.observableArray([]),
              brandToAdd:   ko.observable(""),
              countryToAdd: ko.observable(""),
              addCarBrands: function(){
-                 if((this.brandToAdd !== "") && (this.countryToAdd !== "")){    //letting me add empty values
-                 //if((this.brandToAdd.length > 0) && (this.countryToAdd.length > 0)){  //showing alert every time
+                 if((this.brandToAdd() !== "") && (this.countryToAdd() !== "")){  
                      this.carBrands.push({
-                         brand:   this.brandToAdd,
-                         country: this.countryToAdd
+                         brand:   this.brandToAdd(),
+                         country: this.countryToAdd()
                      });
                  } else {
                      alert("One of the input fields is empty");
                      return false;
-                 }     
-                 //this.carBrands.sort();
+                 } 
+                 
+                 //this.sortBrands();
+                                  
+                 this.brandToAdd("");       // Clear the text box           
+                 this.countryToAdd("");                               
              },
+             /*
+             sortBrands: function() {
+                 this.carBrands.sort(function(a,b){
+                     return a.brand > b.brand ? 1 : -1;
+                 });                    
+             },  
+             */           
              removeRow: function(){
                  viewModel.carBrands.remove(this);
              }
