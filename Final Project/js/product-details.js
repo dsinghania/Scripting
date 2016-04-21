@@ -11,7 +11,11 @@ $(document).ready(function(){
          console.log("Brand- " + result.products[0].manufacturer + " Sale Price- " + result.products[0].salePrice);  
          $(".img-responsive").attr("src", result.products[0].image);
          var $li = $("<li></li>");
+<<<<<<< HEAD
          var prodName = document.createTextNode(result.products[0].name + " (Product ID: " + prodId +")");
+=======
+         var prodName = document.createTextNode(result.products[0].name);
+>>>>>>> origin/master
          var t1 = document.createTextNode( "$ " + result.products[0].salePrice);
          var t2 = document.createTextNode(" Brand- " + result.products[0].manufacturer);
          $name.append(prodName); 

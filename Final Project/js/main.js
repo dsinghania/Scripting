@@ -6,6 +6,17 @@ $(document).ready(function(){
         apiKey = prompt("Please Enter your API Key");
         localStorage.setItem("BEST_BUY_API_KEY", apiKey);
     });
+<<<<<<< HEAD
+=======
+  
+    /*var url = "https://api.bestbuy.com/v1/categories?format=json&apiKey=rskfj6um88m9ksq9e5dmfdn6";  //all categories
+    //           https://api.bestbuy.com/v1/categories?&page=2&callback=JSON_CALLBACK&format=json
+    var url = "https://api.bestbuy.com/v1/categories(id=pcmcat209400050001|id=abcat0501000|id=abcat0401000"+
+                "|id=pcmcat242800050021|id=abcat0204000|id=pcmcat241600050001|id=pcmcat254000050002|id=pcmcat209000050006" +
+                "|id=abcat0502000|id=pcmcat232900050000|id=pcmcat295700050012|id=pcmcat310200050004|id=pcmcat243400050029|" + 
+                "id=abcat0904000|id=abcat0901000|id=abcat0912000|id=abcat0101000|id=abcat0910000|id=pcmcat273800050036)" +
+                "?show=all&format=json&apiKey=rskfj6um88m9ksq9e5dmfdn6";*/
+>>>>>>> origin/master
                 
     var url = getUrl();
     
@@ -14,7 +25,10 @@ $(document).ready(function(){
                 "|id=abcat0502000|id=pcmcat232900050000|id=pcmcat295700050012|id=pcmcat310200050004|id=pcmcat243400050029|" + 
                 "id=abcat0904000|id=abcat0901000|id=abcat0912000|id=abcat0101000|id=abcat0910000|id=pcmcat273800050036)" +
                 "?show=all&page=2&format=json&apiKey=rskfj6um88m9ksq9e5dmfdn6";    
+<<<<<<< HEAD
                 
+=======
+>>>>>>> origin/master
      var $categoryId = $("#category");
      
      addData(url);
@@ -72,6 +86,7 @@ $(document).ready(function(){
             tableElem.appendChild(rowElem);
         }
         document.body.appendChild(tableElem);
+<<<<<<< HEAD
         
   
     /*var url = "https://api.bestbuy.com/v1/categories?format=json&apiKey=rskfj6um88m9ksq9e5dmfdn6";  //all categories
@@ -82,3 +97,6 @@ $(document).ready(function(){
                 "id=abcat0904000|id=abcat0901000|id=abcat0912000|id=abcat0101000|id=abcat0910000|id=pcmcat273800050036)" +
                 "?show=all&format=json&apiKey=rskfj6um88m9ksq9e5dmfdn6";*/
         
+=======
+        */
+>>>>>>> origin/master
